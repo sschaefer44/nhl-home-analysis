@@ -1,3 +1,8 @@
+#This code never got used in the finished product as I implimented Pandas. Origionally, I was planning to write this program
+#only using standard python libraries, but it became ineficient so I decided to utilize Pandas instead.
+
+
+#Reads csv and fills array
 import numpy as np
 import pandas as pd
 import csv
@@ -90,6 +95,7 @@ def home_or_away(team_arr, date_arr, team_name):
                 home_inds.append(i)
     return home_inds, away_inds
 
+#Calculate total wins, losses, and overtime losses. Returns wins, losses, overtime, and the total points the team earned.
 def calcRecord(haGameArr, lossList, otList):
     wins = 0
     losses = 0
@@ -107,6 +113,7 @@ def calcRecord(haGameArr, lossList, otList):
 
     return wins, losses, OTL, totPoints
 
+#Calculates the mean of a statistic
 def mean_of_stat(stat_Array, gameArray):
     mean = 0
     sum = 0
@@ -116,6 +123,7 @@ def mean_of_stat(stat_Array, gameArray):
     mean = sum/n
     return mean
 
+#Sums an array
 def sum_array(stat_Array, gameArray):
     sum = 0
     for i in range(len(gameArray)):
@@ -153,23 +161,6 @@ def calc_linear_regression(stat_Array, gameArray1, gameArray2):
     return a, b 
 
 
-    
-
-
-
-
-        #Usage of read_file function to turn csv file into corresponding arrays
-    #file_path = 'Regular_Season_table.csv'
-        
-        #All state columns from csv as lists of either integers or floats
-    #team, date, win, loss, ot, points, RW, ROW, SOW, goals, goals_against, power_play, penalty_kill, net_ppp, net_pkp, shots, shots_against, FOWp = read_file(file_path)
-        # Your existing functions
-
-# Read CSV file and return a Pandas DataFrame
-def read_file(file):
-    df = pd.read_csv(file)
-    return df
-
 # Determine if a game is home or away
 def home_or_away(df, team_name):
     home_games = df[df['team'] == team_name].loc[~df['date'].str.contains('@')]
@@ -187,33 +178,6 @@ def calculate_statistics(df):
     return mean_stats
 
 def main():
-    # Read CSV file into a DataFrame
-    file_path = 'Regular_Season_table.csv'
-    df = read_file(file_path)
-    
-    print(df.to_string())
-    
-
-    # Add a new column indicating home or away game
-    #df['game_type'] = df['team'].apply(lambda x: 'Away' if '@' in x else 'Home')
-
-    #df.dropna(inplace = True)
-    # Separate home and away games
-    #home_games = df[df['game_type'] == 'Home']
-    #away_games = df[df['game_type'] == 'Away']
-
-    # Calculate mean for every stat for each team (both home and away)
-    #home_mean = home_games.groupby('team').mean()
-    #away_mean = away_games.groupby('team').mean()
-
-    # Merge mean statistics for home and away games
-    #team_mean_stats = pd.merge(home_mean, away_mean, on='team', suffixes=('_home', '_away'))
-
-    #print("Mean Statistics for Home Games:")
-    #print(home_mean)
-    #print("\nMean Statistics for Away Games:")
-    #print(away_mean)
-    #print("\nCombined Mean Statistics for both Home and Away Games:")
-    #print(team_mean_stats)
+    print("Empty")
         
 main()
